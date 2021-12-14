@@ -146,6 +146,10 @@ img {
   color: var(--primary-blue-accent-color);
 }
 
+.link.current {
+  color: var(--primary-blue-accent-color);
+}
+
 .header-contacts {
   display: flex;
   align-items: center;
