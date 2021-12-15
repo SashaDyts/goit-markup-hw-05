@@ -5,10 +5,12 @@
   --secondary-white-color: rgba(255, 255, 255, 0.6);
   --icon-deactive-footer: rgba(255, 255, 255, 0.1);
   --primary-blue-accent-color: #2196f3;
+  --secondary-blue-color: rgba(33, 150, 243, 0.9);
   --primary-black-color: #000000;
   --button-deactive-color: #f5f4fa;
 
   --hero-footer-bg-color: #2f303a;
+  --services-overlay-color: rgba(47, 48, 58, 0.8);
   --our-team-bg-color: #f5f4fa;
 
   --header-border: #ececec;
@@ -186,6 +188,8 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contacts .icon {
@@ -237,6 +241,10 @@ img {
   line-height: 1.87;
   letter-spacing: 0.06em;
   color: var(--primary-white-color);
+
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 
   cursor: pointer;
 
@@ -292,6 +300,33 @@ img {
 
 .services .item + .item {
   margin-left: 30px;
+}
+
+.services .image-thumb {
+  position: relative;
+}
+
+.services .overlay {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 70px;
+  width: 100%;
+
+  background-color: var(--services-overlay-color);
+}
+
+.services .overlay .text {
+  color: var(--primary-white-color);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.142;
+
+  text-transform: uppercase;
 }
 
 /* Our team */
@@ -350,6 +385,8 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team .link:hover,
@@ -359,6 +396,8 @@ img {
 
 .team .icon {
   fill: var(--icons-deactive);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team .link:hover .icon,
@@ -392,6 +431,8 @@ img {
   border: 1px solid #afb1b8;
 
   border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients .link:hover,
@@ -401,6 +442,8 @@ img {
 
 .clients .icon {
   fill: var(--icons-deactive);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients .link:hover .icon,
@@ -443,6 +486,8 @@ img {
   line-height: 1.71;
 
   color: var(--primary-white-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contacts-list .link.contacts {
@@ -487,6 +532,8 @@ img {
 
   background-color: var(--icon-deactive-footer);
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-socials .link:hover,
@@ -521,10 +568,15 @@ img {
   border-radius: 4px;
 
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter .button:hover,
 .filter .button:focus {
   color: var(--primary-white-color);
+  outline: none;
 
   background-color: var(--primary-blue-accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -544,11 +596,37 @@ img {
 
 .examples .link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .examples .link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.examples .image-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.examples .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  transform: translateY(101%);
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--secondary-blue-color);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.examples .link:hover .overlay {
+  transform: translateY(0);
 }
 
 .examples .text-content {
@@ -561,12 +639,12 @@ img {
   border-top: 0;
 }
 
-.examples .title {
+.examples .text-content .title {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.examples .text {
+.examples .text-content .text {
   margin-top: 4px;
 
   color: var(--primary-text-color);
